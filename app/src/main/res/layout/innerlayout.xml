@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="FilmBinding">
+
+        <variable
+            name="filmmodel"
+            type="com.example.pooria.mvvm_retrofit.viewmodel.FilmViewModel" />
+    </data>
+
+
+    <android.support.v7.widget.CardView
+        app:cardCornerRadius="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_margin="5dp"
+                app:imageurl="@{filmmodel.imageurl}"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="20dp"
+                    android:text="@{filmmodel.name}"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="20dp"
+                    android:text="@{filmmodel.realname}"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="20dp"
+                    android:text="@{filmmodel.team}"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textSize="20dp"
+                    android:text="@{filmmodel.firstappearance}"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    </layout>
