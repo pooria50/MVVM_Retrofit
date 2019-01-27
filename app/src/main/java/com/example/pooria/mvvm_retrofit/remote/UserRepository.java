@@ -1,18 +1,18 @@
 package com.example.pooria.mvvm_retrofit.remote;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.telecom.Call;
 import android.util.Log;
-
 import com.example.pooria.mvvm_retrofit.model.FilmList;
 import com.example.pooria.mvvm_retrofit.model.Record;
 import com.example.pooria.mvvm_retrofit.viewmodel.FilmViewModel;
-
 import java.util.ArrayList;
+import java.util.Observable;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+import rx.schedulers.Schedulers;
 
 public class UserRepository {
 
@@ -54,15 +54,41 @@ public class UserRepository {
                 }
                 arrayListMutableLiveData.setValue(arrayList);
             }
-
             @Override
             public void onFailure(retrofit2.Call<FilmList> call, Throwable t) {
-                Log.d("Error", t.getMessage().toString());
-
+                Log.d("Error", t.toString().toString());
             }
         });
         return arrayListMutableLiveData;
-
-
+      /* APIService apiService = RetroClass.getApiService();
+        Observable<FilmList> items = (Observable<FilmList>) apiService.getFilmsListByRx()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<FilmList>() {
+                    @Override
+                    public void accept(FilmList filmList) throws Exception {
+                        Log.d("testing", "accept: " + filmList.getRecords().toString());
+                        ArrayList<Record> items = filmList.getRecords();
+                        Record record;
+                        FilmViewModel filmViewModel;
+                        arrayList = new ArrayList<>();
+                        for (int i = 0; i < items.size(); i++) {
+                            record = new Record(
+                                    items.get(i).publisher,
+                                    items.get(i).name,
+                                    items.get(i).bio,
+                                    items.get(i).imageurl,
+                                    items.get(i).createdby,
+                                    items.get(i).team,
+                                    items.get(i).firstappearance,
+                                    items.get(i).realname
+                            );
+                            filmViewModel = new FilmViewModel(record);
+                            arrayList.add(filmViewModel);
+                        }
+                        arrayListMutableLiveData.setValue(arrayList);
+                    }
+                });
+        return arrayListMutableLiveData;*/
     }
 }
