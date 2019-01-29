@@ -13,55 +13,60 @@
     <android.support.v7.widget.CardView
         app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
-        cardCornerRadius="4dp"
-        android:layout_margin="15dp"
-        android:layout_height="wrap_content">
+        cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:background="@color/a1"
-
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_margin="5dp"
+                android:layout_margin="15dp"
                 app:imageurl="@{filmmodel.imageurl}"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:padding="5dp"
+                android:layout_width="140dp"
+                android:layout_height="120dp" />
 
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_margin="15dp"
+                android:background="@color/a1"
                 android:layout_height="wrap_content">
+
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:textSize="20dp"
+                    android:textSize="14dp"
+                    android:textAppearance="@dimen/cardview_default_radius"
                     android:text="@{filmmodel.name}"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:textSize="20dp"
+                    android:textSize="14dp"
                     android:text="@{filmmodel.realname}"
+                    android:textAppearance="@dimen/cardview_default_radius"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:textSize="20dp"
+                    android:textSize="14dp"
                     android:text="@{filmmodel.team}"
+                    android:textAppearance="@dimen/cardview_default_radius"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:textSize="20dp"
+                    android:textSize="14dp"
+                    android:textAppearance="@dimen/cardview_default_radius"
                     android:text="@{filmmodel.firstappearance}"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content" />
@@ -69,8 +74,8 @@
 
 
             </LinearLayout>
+            </LinearLayout>
 
-        </LinearLayout>
 
     </android.support.v7.widget.CardView>
 

@@ -2,17 +2,15 @@ package com.example.pooria.mvvm_retrofit.remote;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
+
 import com.example.pooria.mvvm_retrofit.model.FilmList;
 import com.example.pooria.mvvm_retrofit.model.Record;
 import com.example.pooria.mvvm_retrofit.viewmodel.FilmViewModel;
 import java.util.ArrayList;
-import java.util.Observable;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
+import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import rx.schedulers.Schedulers;
 
 public class UserRepository {
 
@@ -29,7 +27,8 @@ public class UserRepository {
     public MutableLiveData<ArrayList<FilmViewModel>> getArrayListMutableLiveData() {
 
         APIService apiService = RetroClass.getApiService();
-        retrofit2.Call<FilmList> filmList = apiService.getFilmList();
+        Call<FilmList>filmList =apiService.getFilmList();
+        //retrofit2.Call<FilmList> filmList = apiService.getFilmList();
         filmList.enqueue(new Callback<FilmList>() {
             @Override
             public void onResponse(retrofit2.Call<FilmList> call, Response<FilmList> response) {

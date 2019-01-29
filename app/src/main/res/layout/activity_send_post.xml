@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    tools:context=".Activities.SendPostActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:paddingTop="10dp"
+                android:layout_marginTop="8dp"
+                android:text="عکس آگهی"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:fontFamily="cursive"
+                android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:layout_marginTop="5dp"
+            android:text="افزودن عکس بازدید اگهی شما را تا ۳ برابر افزایش میدهد."
+            android:textSize="14dp"
+            android:fontFamily="cursive"
+            android:gravity="right"
+            android:textAlignment="inherit"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/img_url"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:focusableInTouchMode="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:foregroundGravity="center"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_add_a_photo_black_24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:layout_marginTop="5dp"
+            android:text="نام محصول مورد نظر "
+            android:textSize="17dp"
+            android:gravity="right"
+            android:textAlignment="inherit"
+            android:layout_marginRight="10dp"
+            android:fontFamily="cursive"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edt_name"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:fontFamily="cursive"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:layout_marginTop="5dp"
+            android:text="مکان "
+            android:textSize="17dp"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            android:textAlignment="inherit"
+            android:fontFamily="cursive"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edt_location"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:fontFamily="cursive"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:layout_marginTop="5dp"
+            android:text="قیمت ( ریال )‌ٰ "
+            android:textSize="17dp"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            android:textAlignment="inherit"
+            android:fontFamily="cursive"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edt_price"
+            android:textSize="15dp"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:layout_marginTop="5dp"
+            android:text="توضیحات اضافه  "
+            android:textSize="17dp"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            android:textAlignment="inherit"
+            android:fontFamily="cursive"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edt_description"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:fontFamily="cursive"
+            android:textAlignment="center"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="80dp"
+            android:background="#d67601"
+            android:text="ارسال"
+            android:fontFamily="cursive"
+            android:textAllCaps="false"
+            android:id="@+id/btn_send"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.example.pooria.mvvm_retrofit.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.pooria.mvvm_retrofit.Activities.RecyclerItemClickActivity;
 import com.example.pooria.mvvm_retrofit.R;
 import com.example.pooria.mvvm_retrofit.databinding.FilmBinding;
 import com.example.pooria.mvvm_retrofit.viewmodel.FilmViewModel;
+import com.orhanobut.hawk.Hawk;
 
 import java.util.ArrayList;
 
@@ -45,12 +48,25 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomView customView, int i) {
+    public void onBindViewHolder(@NonNull final CustomView customView, final int i) {
         FilmViewModel filmViewModel = arrayList.get(i);
         customView.bind(filmViewModel);
         String s = arrayList.get(i).name.toString()+arrayList.get(i).firstappearance.toString();
-        Toast.makeText(context, "ss:    " + s.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "ss:    " + s.toString(), Toast.LENGTH_SHORT).show();
         Log.d("loggg", s);
+        customView.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s1 = customView.filmBinding.getFilmmodel().realname.toString();
+                Log.d("onclick", "onClick: "+s1.toString());
+                Toast.makeText(context, "" + customView.filmBinding.getFilmmodel().realname, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, RecyclerItemClickActivity.class);
+                intent.putExtra("name", s1);
+                context.startActivity(intent);
+                //Hawk.put("name", s1.toString());
+            }
+        });
+
     }
 
     @Override

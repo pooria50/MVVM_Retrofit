@@ -33,7 +33,7 @@ public class FilmViewModel extends ViewModel {
             arrayListMutableLiveData = new MutableLiveData<>();
     private ArrayList<FilmViewModel> arrayList;
 
-    public FilmViewModel(){
+    public FilmViewModel() {
         userRepasitory = new UserRepository();
         arrayListMutableLiveData = userRepasitory.getArrayListMutableLiveData();
     }
@@ -51,12 +51,12 @@ public class FilmViewModel extends ViewModel {
     }
 
 
-    public MutableLiveData<ArrayList<FilmViewModel>>getArrayListMutableLiveData() {
+    public MutableLiveData<ArrayList<FilmViewModel>> getArrayListMutableLiveData() {
         return arrayListMutableLiveData;
     }
 
     @BindingAdapter({"bind:imageurl"})
-    public static void getimageurl(ImageView view, String imageurl){
+    public static void getimageurl(ImageView view, String imageurl) {
         Glide.with(view.getContext()).load(imageurl).into(view);
     }
 }

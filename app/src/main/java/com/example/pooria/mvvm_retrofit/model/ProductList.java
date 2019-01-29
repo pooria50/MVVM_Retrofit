@@ -5,16 +5,18 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class FilmList {
+public class ProductList {
+
     @SerializedName("records")
     @Expose
-    public ArrayList<Record> records = new ArrayList<>();
+    public ArrayList<Products> records = new ArrayList<>();
 
-    public ArrayList<Record> getRecords() {
+    public ArrayList<Products> getRecords() {
         return records;
     }
 
-    public void setRecords(ArrayList<Record> records) {
+    public void setRecords(ArrayList<Products> records) {
         this.records = records;
     }
 }
+
