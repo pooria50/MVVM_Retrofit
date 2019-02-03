@@ -11,30 +11,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.pooria.mvvm_retrofit.Activities.MainActivity;
 import com.example.pooria.mvvm_retrofit.Activities.RecyclerItemClickActivity;
 import com.example.pooria.mvvm_retrofit.R;
-import com.example.pooria.mvvm_retrofit.databinding.FilmBinding;
-import com.example.pooria.mvvm_retrofit.viewmodel.FilmViewModel;
-import com.orhanobut.hawk.Hawk;
+import com.example.pooria.mvvm_retrofit.databinding.PostsBinding;
+import com.example.pooria.mvvm_retrofit.viewmodel.ProductViewModel;
 
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView> {
 
     private Context context;
-    private ArrayList<FilmViewModel> arrayList;
+    private ArrayList<ProductViewModel> arrayList;
     private LayoutInflater layoutInflater;
 
 
     public CustomAdapter() {
     }
 
-    public CustomAdapter(Context context, ArrayList<FilmViewModel> arrayList) {
+    public CustomAdapter(Context context, ArrayList<ProductViewModel> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
-
-
 
     @NonNull
     @Override
@@ -42,30 +40,30 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         if (layoutInflater == null) {
             layoutInflater = LayoutInflater.from(parent.getContext());
         }
-        FilmBinding binding = DataBindingUtil.inflate(layoutInflater,
-                R.layout.innerlayout, parent, false);
+        PostsBinding binding = DataBindingUtil.inflate(layoutInflater,
+                   R.layout.innerlayout, parent, false);
+
         return new CustomView(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final CustomView customView, final int i) {
-        FilmViewModel filmViewModel = arrayList.get(i);
-        customView.bind(filmViewModel);
-        String s = arrayList.get(i).name.toString()+arrayList.get(i).firstappearance.toString();
+        ProductViewModel productViewModel = arrayList.get(i);
+        customView.bind(productViewModel);
+        String s = arrayList.get(i).name.toString()+arrayList.get(i).price.toString();
         //Toast.makeText(context, "ss:    " + s.toString(), Toast.LENGTH_SHORT).show();
         Log.d("loggg", s);
-        customView.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String s1 = customView.filmBinding.getFilmmodel().realname.toString();
-                Log.d("onclick", "onClick: "+s1.toString());
-                Toast.makeText(context, "" + customView.filmBinding.getFilmmodel().realname, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, RecyclerItemClickActivity.class);
-                intent.putExtra("name", s1);
-                context.startActivity(intent);
-                //Hawk.put("name", s1.toString());
-            }
-        });
+
+      customView.itemView.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              String _id = customView.postsBinding.getPostmodel().id.toString();
+              Log.d("name", "onClick: "+ _id);
+              Intent intent = new Intent(context, RecyclerItemClickActivity.class);
+              intent.putExtra("name", _id);
+              context.startActivity(intent);
+          }
+      });
 
     }
 
@@ -76,20 +74,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     class CustomView extends RecyclerView.ViewHolder {
 
-        public FilmBinding filmBinding;
+        public PostsBinding postsBinding;
 
-        public CustomView(FilmBinding filmBinding) {
-            super(filmBinding.getRoot());
-            this.filmBinding = filmBinding;
+        public CustomView(PostsBinding postsBinding) {
+            super(postsBinding.getRoot());
+            this.postsBinding = postsBinding;
         }
 
-        public void bind(FilmViewModel filmViewModel) {
-            this.filmBinding.setFilmmodel(filmViewModel);
-            filmBinding.executePendingBindings();
+        public void bind(ProductViewModel productViewModel) {
+            this.postsBinding.setPostmodel(productViewModel);
+            postsBinding.executePendingBindings();
         }
 
-        public FilmBinding getFilmBinding() {
-            return filmBinding;
+        public PostsBinding getPostsBinding() {
+            return postsBinding;
         }
     }
 }

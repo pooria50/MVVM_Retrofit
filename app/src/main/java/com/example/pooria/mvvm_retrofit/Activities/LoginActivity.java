@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     private void LoginRequest() {
         String _username = edt_username.getText().toString();
         String _password = edt_password.getText().toString();
-        apiService = Common.getAPI();
+        apiService = RetrofitClient.getClient().create(APIService.class);
         apiService.PerformLogin(_username,_password).enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {

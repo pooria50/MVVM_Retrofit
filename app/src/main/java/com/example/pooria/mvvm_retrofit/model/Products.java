@@ -3,6 +3,8 @@ package com.example.pooria.mvvm_retrofit.model;
 public class Products {
     public String name ,location , price,description, image_url;
 
+    public Integer id;
+
     public String getName() {
         return name;
     }
@@ -46,7 +48,8 @@ public class Products {
     public Products() {
     }
 
-    public Products(String name, String location, String price, String description, String image_url) {
+    public Products(Integer id ,String name, String location, String price, String description, String image_url) {
+        this.id = id;
         this.name = name;
         this.location = location;
         this.price = price;

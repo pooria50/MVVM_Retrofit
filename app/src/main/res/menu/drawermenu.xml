@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/db" android:title="dashboard" android:icon="@drawable/profile"/>
+    <item android:id="@+id/da" android:title="pooria" android:icon="@drawable/profile"/>
+    <item android:id="@+id/dc" android:title="parsa" android:icon="@drawable/ic_launcher_foreground"/>
+    <item android:id="@+id/dd" android:title="sara" android:icon="@drawable/ic_add_a_photo_black_24dp"/>
+
+</menu>

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Mvvm</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
 
 
 </resources>

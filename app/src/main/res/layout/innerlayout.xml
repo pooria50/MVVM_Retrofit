@@ -2,20 +2,21 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class="FilmBinding">
+    <data class="PostsBinding">
 
         <variable
-            name="filmmodel"
-            type="com.example.pooria.mvvm_retrofit.viewmodel.FilmViewModel" />
+            name="postmodel"
+            type="com.example.pooria.mvvm_retrofit.viewmodel.ProductViewModel" />
     </data>
 
 
     <android.support.v7.widget.CardView
         app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
-        cardCornerRadius="8dp"
+        android:layout_marginTop="4dp"
+        cardCornerRadius="18dp"
         app:cardUseCompatPadding="true"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -25,7 +26,7 @@
 
             <ImageView
                 android:layout_margin="15dp"
-                app:imageurl="@{filmmodel.imageurl}"
+                app:imageurl="@{postmodel.imageurl}"
                 android:padding="5dp"
                 android:layout_width="140dp"
                 android:layout_height="120dp" />
@@ -36,7 +37,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_margin="15dp"
-                android:background="@color/a1"
+                android:background="@color/colorAccent"
                 android:layout_height="wrap_content">
 
 
@@ -44,30 +45,38 @@
                     android:layout_width="match_parent"
                     android:textSize="14dp"
                     android:textAppearance="@dimen/cardview_default_radius"
-                    android:text="@{filmmodel.name}"
+                    android:fontFamily="cursive"
+                    android:drawableTint="#FF4081"
+                    android:text="@{postmodel.name}"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:fontFamily="cursive"
+                    android:textSize="14dp"
+                    android:text="@{postmodel.location}"
+                    android:textAppearance="@dimen/cardview_default_radius"
+                    android:layout_marginTop="10dp"
+                    android:drawableTint="#FF4081"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:textSize="14dp"
-                    android:text="@{filmmodel.realname}"
+                    android:text="@{postmodel.price}"
                     android:textAppearance="@dimen/cardview_default_radius"
+                    android:drawableTint="#FF4081"
+                    android:fontFamily="cursive"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:textSize="14dp"
-                    android:text="@{filmmodel.team}"
                     android:textAppearance="@dimen/cardview_default_radius"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:textSize="14dp"
-                    android:textAppearance="@dimen/cardview_default_radius"
-                    android:text="@{filmmodel.firstappearance}"
+                    android:fontFamily="cursive"
+                    android:text="@{postmodel.description}"
+                    android:drawableTint="#FF4081"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content" />
 

@@ -18,12 +18,9 @@ public class RecyclerItemClickActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_item_click);
-        /*Object name = Hawk.get("name");
-        Log.d("recycler", "onCreate: " + name.toString());
-        */
         intent = getIntent();
         String name = intent.getStringExtra("name");
-        //Toast.makeText(this, name.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, name.toString(), Toast.LENGTH_SHORT).show();
 
     }
 }

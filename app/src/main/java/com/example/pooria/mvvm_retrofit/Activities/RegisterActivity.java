@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void RegisterRequest() {
         String _username = edt_username.getText().toString();
         String _password = edt_password.getText().toString();
-        apiService = Common.getAPI();
+        apiService = RetrofitClient.getClient().create(APIService.class);
         apiService.PerformRegister(_username,_password).enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void BindControls() {
         edt_username = findViewById(R.id.edt_username);
-        edt_password = findViewById(R.id.edt_username);
+        edt_password = findViewById(R.id.edt_password);
         btn_register = findViewById(R.id.btn_register);
     }
 }

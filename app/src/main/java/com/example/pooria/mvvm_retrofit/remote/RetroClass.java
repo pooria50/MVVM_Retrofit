@@ -11,7 +11,12 @@ public class RetroClass {
 
     private static final String BASE_URL = "http://www.json-generator.com/";
     //private static final String BASE_URL = "http://www.json-generator.com/";
+
+
+
+
     private static Retrofit getRetroInstance () {
+
         Gson gson = new GsonBuilder().setLenient().create();
 
         return new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).addCallAdapterFactory(

@@ -1,11 +1,9 @@
 package com.example.pooria.mvvm_retrofit.remote;
 
-import com.example.pooria.mvvm_retrofit.model.FilmList;
 import com.example.pooria.mvvm_retrofit.model.ProductList;
 import com.example.pooria.mvvm_retrofit.model.Products;
 import com.example.pooria.mvvm_retrofit.model.UserModel;
 
-import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -17,14 +15,15 @@ public interface APIService {
 
 
 
-    //GetPostsArraylist
-    @GET("api/json/get/ckXwVMgONu?indent=2")
-    Call<FilmList> getFilmList();
-
-
-    //GetPostsArraylist
     @GET("ReadProducts.php")
-    Call<ProductList> PerformGetPosts();
+    Call<ProductList> PerformGetProductlist();
+
+
+
+//    //GetPostsArraylist
+//    @GET("api/json/get/ckXwVMgONu?indent=2")
+//    Call<FilmList> getFilmList();
+
 
 
 

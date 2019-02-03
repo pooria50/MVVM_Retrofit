@@ -18,6 +18,7 @@ import com.example.pooria.mvvm_retrofit.R;
 import com.example.pooria.mvvm_retrofit.Utils.Common;
 import com.example.pooria.mvvm_retrofit.model.Products;
 import com.example.pooria.mvvm_retrofit.remote.APIService;
+import com.example.pooria.mvvm_retrofit.remote.RetrofitClient;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -31,7 +32,6 @@ public class SendPostActivity extends AppCompatActivity {
     private ImageView img_url;
     private EditText edt_location, edt_price, edt_description, edt_name;
     private Button btn_send;
-
     private APIService apiService;
     private Bitmap bitmap;
     private static final int IMG_REQUEST = 777;
@@ -62,8 +62,8 @@ public class SendPostActivity extends AppCompatActivity {
         String _description = edt_description.getText().toString();
         String _name = edt_name.getText().toString();
         String _image_url = imageToString();
-        apiService = Common.getAPI();
-        apiService.PerformSendPost(_name, _location, _price, _description, _image_url).enqueue(new Callback<Products>() {
+        apiService = RetrofitClient.getClient().create(APIService.class);
+        apiService.PerformSendPost(_name, _location, _price, _description,_image_url).enqueue(new Callback<Products>() {
             @Override
             public void onResponse(Call<Products> call, Response<Products> response) {
                 Products body = response.body();
